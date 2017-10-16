@@ -1,0 +1,2 @@
+class ForecastException(Exception):
+    pass
