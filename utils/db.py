@@ -24,4 +24,4 @@ class DbFactory(object):
 
     @classmethod
     def use_test_db(cls):
-        return os.environ.get('USE_TEST_DB')
+        return os.environ.get('USE_TEST_DB') or settings.USE_FAKE_DATA

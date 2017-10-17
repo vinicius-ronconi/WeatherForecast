@@ -138,6 +138,8 @@ CELERY_MONGODB_BACKEND_SETTINGS = {
     'taskmeta_collection': 'taskmeta_collection',
 }
 
+USE_FAKE_DATA = False
+
 try:
     from WeatherForecast.local_settings import *
 except ImportError:
