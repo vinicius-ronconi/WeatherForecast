@@ -100,7 +100,7 @@ class FakeWeatherApi(IWeather):
     def get_forecast(self, location_id, units):
         return beans.ForecastWeather(
             city=self._make_city_bean(),
-            weather=[self._make_weather_bean()],
+            weather=[self._make_weather_bean()] * 20,
         )
 
     @staticmethod
