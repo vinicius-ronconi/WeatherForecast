@@ -1,3 +1,4 @@
+from django.shortcuts import render_to_response
 from django.views.generic import View
 
 from forecast.factory import ForecastFactory
@@ -11,3 +12,7 @@ class ForecastView(View):
     def get(self, request):
         # TODO: Make it available only for admin users
         return self.controller.get_forecast(request)
+
+
+def dashboard(request):
+    return render_to_response('dashboard/react_dashboard.html')

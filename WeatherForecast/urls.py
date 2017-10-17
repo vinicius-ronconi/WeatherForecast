@@ -4,4 +4,5 @@ urlpatterns = [
     url(r'^async/', include('async.urls')),
     url(r'^cities/', include('cities.urls')),
     url(r'^forecast/', include('forecast.urls')),
+    url(r'', include('forecast.urls')),
 ]
