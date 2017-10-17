@@ -10,7 +10,6 @@ from cities.interfaces import IDownloader
 class CompressedJsonDownloader(IDownloader):
     def download(self, url):
         response = requests.get(url)
-        print('response.content = {}'.format(response.content))
         decompressed_file = gzip.GzipFile(fileobj=BytesIO(response.content))
         json_content = json_util.loads(decompressed_file.read().decode('utf-8'))
         return json_content
