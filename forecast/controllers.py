@@ -1,4 +1,8 @@
+import os
+
+from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.http import HttpResponse
 
 from forecast.interfaces import IWeather
 
@@ -75,3 +79,12 @@ class ForecastController(object):
             'cloudiness': weather.cloudiness,
             'forecast_dt': weather.forecast_dt,
         }
+
+
+class ReactAppController(object):
+    def get_react_app(self):
+        try:
+            with open(os.path.join(settings.REACT_APP_DIR, 'build', 'index.html')) as file:
+                return HttpResponse(file.read())
+        except:
+            return HttpResponse('index.html not found! Rebuild your react app.', status=501)

@@ -1,9 +1,7 @@
-import re
 from time import time
 
 from async.controllers import AsyncController
 from cities.adapters import OpenWeatherMongoAdapter
-from utils.db import DbFactory
 from utils.logger import init_logger
 
 

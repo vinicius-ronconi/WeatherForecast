@@ -1,7 +1,7 @@
-from django.shortcuts import render_to_response
 from django.views.generic import View
 
 from forecast.factory import ForecastFactory
+from forecast.controllers import ReactAppController
 from utils.decorators import render_to_json
 
 
@@ -13,5 +13,8 @@ class ForecastView(View):
         return self.controller.get_forecast(request)
 
 
-def dashboard(request):
-    return render_to_response('dashboard/react_dashboard.html')
+class DashboardView(View):
+    controller = ReactAppController()
+
+    def get(self, _):
+        return self.controller.get_react_app()
