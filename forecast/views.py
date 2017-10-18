@@ -10,7 +10,6 @@ class ForecastView(View):
 
     @render_to_json
     def get(self, request):
-        # TODO: Make it available only for admin users
         return self.controller.get_forecast(request)
 
 

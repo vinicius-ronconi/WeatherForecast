@@ -5,6 +5,14 @@ Show weather forecast for a city using OpenWeatherMap.org API
 * Python 3.6+ - https://www.python.org/downloads/
 * Mongo 3.2+ - https://www.mongodb.com/download-center#community
 * RabbitMQ - http://www.rabbitmq.com/download.html
+* An API Key from http://openweathermaps.org/
+
+# Attention
+Before run manual_scripts/initial_cities_load.py from setup section, create a new file WeatherForecast/local_settings.py with at least:
+```
+SECRET_KEY = 'some_secret_key_for_the_app'
+OPEN_WEATHER_API_KEY = 'api_key_created_on_openweathermap_org'
+```
 
 # Setup
 ```
