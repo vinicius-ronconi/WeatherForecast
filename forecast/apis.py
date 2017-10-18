@@ -23,10 +23,12 @@ class OpenWeatherApi(IWeather):
 
     @staticmethod
     def _make_city_bean_from_current_content(data):
+        country_code = data.get('sys', {}).get('country')
         return beans.City(
             id=data.get('id'),
             name=data.get('name'),
-            country_code=data.get('sys', {}).get('country'),
+            country_code=country_code,
+            flag_url='/flags-100px/{}.png'.format(country_code.lower()),
             lat=data.get('coord', {}).get('lat'),
             lon=data.get('coord', {}).get('lon'),
             sunrise=data.get('sys', {}).get('sunrise'),
@@ -44,10 +46,12 @@ class OpenWeatherApi(IWeather):
 
     @staticmethod
     def _make_city_bean_from_forecast_content(data):
+        country_code = data.get('city', {}).get('country')
         return beans.City(
             id=data.get('city', {}).get('id'),
             name=data.get('city', {}).get('name'),
-            country_code=data.get('city', {}).get('country'),
+            country_code=country_code,
+            flag_url='/flags-100px/{}.png'.format(country_code.lower()),
             lat=data.get('city', {}).get('coord', {}).get('lat'),
             lon=data.get('city', {}).get('coord', {}).get('lon'),
             sunrise=0,
@@ -109,6 +113,7 @@ class FakeWeatherApi(IWeather):
             id=3444924,
             name='Vitoria',
             country_code='BR',
+            flag_url='/flags-100px/br.png',
             lat=-20.32,
             lon=-40.34,
             sunrise=1508141357,

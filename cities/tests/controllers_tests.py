@@ -23,12 +23,30 @@ class CitiesControllerTestCase(TestCase):
     def test_it_searches_case_insensitive(self):
         result = self.controller.search_cities('Van')
         expected_result = [
-            {'id': 2, 'name': 'Vance', 'country': 'US', 'coord': {'lon': -87.233612, 'lat': 33.17}},
-            {'id': 3, 'name': 'Vancouver', 'country': 'US', 'coord': {'lon': -122.661491, 'lat': 45.63}},
+            {
+                'id': 2,
+                'name': 'Vance',
+                'country': 'US',
+                'coord': {'lon': -87.233612, 'lat': 33.17},
+                'flag_url': '/flags-100px/us.png',
+            },
+            {
+                'id': 3,
+                'name': 'Vancouver',
+                'country': 'US',
+                'coord': {'lon': -122.661491, 'lat': 45.63},
+                'flag_url': '/flags-100px/us.png',
+            },
         ]
         self.assertListEqual(result, expected_result)
         result = self.controller.search_cities('Serra')
-        expected_result = [{'id': 1, 'name': 'Serra', 'country': 'BR', 'coord': {'lon': -40.307781, 'lat': -20.128611}}]
+        expected_result = [{
+            'id': 1,
+            'name': 'Serra',
+            'country': 'BR',
+            'coord': {'lon': -40.307781, 'lat': -20.128611},
+            'flag_url': '/flags-100px/br.png',
+        }]
         self.assertListEqual(result, expected_result)
 
     def test_it_does_not_search_if_query_does_not_have_three_chars(self):

@@ -5,6 +5,7 @@ City = namedtuple('City', [
     'id',  # str
     'name',  # str
     'country_code',  # str
+    'flag_url',  # str
     'lat',  # float
     'lon',  # float
     'sunrise',  # int

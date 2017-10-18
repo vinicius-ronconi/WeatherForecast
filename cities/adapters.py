@@ -10,6 +10,7 @@ class OpenWeatherMongoAdapter(object):
     def prepare_to_open_weather(self, list_of_dicts):
         for item in list_of_dicts:
             item['id'] = item['_id']
+            item['flag_url'] = '/flags-100px/{}.png'.format(item.get('country', '').lower())
             del item['_id']
             del item['timestamp']
         return list_of_dicts
