@@ -113,12 +113,14 @@ db.sqlite3
 
 # dependencies
 /node_modules
+/front-end/node_modules
 
 # testing
 /coverage
 
 # production
 /build
+/front-end/build
 
 # misc
 .DS_Store

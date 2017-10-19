@@ -1,0 +1,43 @@
+.weather {
+  background-color: #134cd6;
+  color: white;
+  height: 100%;
+  padding: 0px 25px 25px 25px; }
+  .weather--sunny {
+    background-color: #ffbf00; }
+  .weather--cloudy {
+    background-color: #cbcbcb; }
+  .weather--rainy {
+    background-color: #007fff; }
+  .weather-header {
+    padding-top: 100px;
+    padding-bottom: 150px;
+    text-align: center; }
+    .weather-header .weather-temp {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 40px;
+      padding-bottom: 15px;
+      padding-bottom: 15px; }
+    .weather-header .weather-place {
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      line-height: 15px;
+      padding-bottom: 15px;
+      padding-bottom: 15px; }
+    .weather-header .weather-icon {
+      font-size: 150px;
+      padding-bottom: 15px;
+      padding-bottom: 15px;
+      text-shadow: 5px 5px rgba(140, 140, 140, 0.2); }
+  .weather-body {
+    text-align: center; }
+
+@keyframes breath {
+  0% {
+    transform: rotate(0deg) scaleX(1) scaleY(1); }
+  50% {
+    transform: rotate(0deg) scaleX(0.8) scaleY(0.8); }
+  100% {
+    transform: rotate(0deg) scaleX(1) scaleY(1); } }
