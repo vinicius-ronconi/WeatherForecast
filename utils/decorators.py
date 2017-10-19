@@ -13,5 +13,5 @@ def render_to_json(f):
             data = f(request, *args, **kwargs)
             return JsonResponse(data, safe=isinstance(data, dict))
         except (ValidationError, ForecastException) as e:
-            return JsonResponse(data={'error': e.message}, status=400)
+            return JsonResponse(data={'error': str(e)}, status=400)
     return wrapper
