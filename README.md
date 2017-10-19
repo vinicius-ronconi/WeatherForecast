@@ -45,3 +45,8 @@ python3 manage.py runserver
 
 # Known Bug
 * During autocomplete an error is raised to console that needs to be handled although it does not affect the operation
+
+# Screen Shots
+![sunny day](front-end/github_screenshots/sunny.png "Sunny Day")
+![cloudy day](front-end/github_screenshots/cloudy.png "Cloudy Day")
+![rainy day](front-end/github_screenshots/rainy.png "Rainy Day")
