@@ -3,21 +3,30 @@ import { getCities, getForecast } from '../api'
 
 //Components
 import Weather from './../Weather'
-import { Search, Label } from 'semantic-ui-react'
+import { Search, Label, Loader, Message } from 'semantic-ui-react'
 
 //Styles
 import './App.css'
 import 'semantic-ui-css/semantic.min.css'
 
-const resultRenderer = ({id, name, country, flag_url }) => <Label key={id} content={`${name} - ${country}`} />
+const resultRenderer = ({ id, name, country, flag_url }) => <Label key={id} content={`${name} - ${country}`} />
+
+const Layout = ({ children }) => (
+  <div className="fluid-height aligner">
+    <div className="app app--shadow aligner-item">
+      {children}
+    </div>
+  </div>
+)
 
 class App extends Component {
 
   constructor() {
-    super()
+    super();
 
     this.state = {
-      forecast: null
+      forecast: null,
+      error: null
     }
   }
 
@@ -31,16 +40,20 @@ class App extends Component {
 
   resetComponent() {
     this.setState({
-      isLoading: false, cities: [], value: ''
+      isLoading: false,
+      cities: [],
+      value: ''
     })
   }
 
   handleResultSelect = (e, { result }) => {
     this.fetchForecast(result.id)
-  }
+  };
 
   handleSearchChange = (e, { value }) => {
-    this.setState({ isLoading: true, value })
+    this.setState({
+        isLoading: true, value
+    });
 
     setTimeout(() => {
       if (this.state.value.length < 1) {
@@ -52,45 +65,68 @@ class App extends Component {
           cities: data,
           isLoading: false,
         })
-      }).catch((err) => console.log('err:', err))
+      }).catch((err) => this.handleError(err))
     }, 10)
-  }
+  };
 
-  fetchForecast(locationId) {
+  fetchForecast = (locationId) => {
     getForecast(locationId).then((data) => {
       this.setState({
         forecast: data
       })
-    }).catch((err) => console.log('err:', err))
+    }).catch((err) => this.handleError(err))
+  };
+
+  handleError = (data) => {
+    this.setState({
+        error: data.error
+    })
   }
 
   render() {
-    const { isLoading, value, cities, forecast } = this.state
+    const { isLoading, value, cities, forecast, error } = this.state
 
-    if(forecast === null) {
-      return <div></div>
+    if (error !== null) {
+      return (
+        <Layout>
+          <div className="app-info">
+            <Message negative>
+              {error}
+            </Message>
+          </div>
+        </Layout>
+      )
+    }
+
+
+    if (forecast == null) {
+      return (
+        <Layout>
+          <div className="app-info">
+            <Loader size='medium' active inline='centered'>Loading</Loader>
+          </div>
+        </Layout>
+      )
     }
 
     return (
-      <div className="fluid-height aligner">
-        <div className="app app--shadow aligner-item">
-          <div className="header">
-            <div className="header-search">
-              <Search
-                placeholder="Type city name.."
-                className="header-search__input"
-                loading={isLoading}
-                onResultSelect={this.handleResultSelect}
-                onSearchChange={this.handleSearchChange}
-                results={cities}
-                value={value}
-                resultRenderer={resultRenderer}
-                {...this.props} />
-            </div>
+      <Layout>
+        <div className="header">
+          <div className="header-search">
+            <Search
+              placeholder="Type city name.."
+              className="header-search__input"
+              loading={isLoading}
+              onResultSelect={this.handleResultSelect}
+              onSearchChange={this.handleSearchChange}
+              results={cities}
+              value={value}
+              resultRenderer={resultRenderer}
+              {...this.props} />
           </div>
-          <Weather data={this.state.forecast}/>
         </div>
-      </div>
+        <Weather data={this.state.forecast} />
+      </Layout>
     )
   }
 }

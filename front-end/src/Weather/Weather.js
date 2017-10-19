@@ -18,7 +18,7 @@ const WeatherHeader = ({ city = "", weather = ""}) => (
       {weather.temperature}° C
     </div>
   </div>
-)
+);
 
 const WeatherBody = ({ weather = {}}) => (
   <div className="weather-body">
@@ -45,20 +45,20 @@ const WeatherBody = ({ weather = {}}) => (
       </Grid.Row>
     </Grid>
   </div>
-)
+);
 
 class Weather extends Component {
 
   render() {
-    const { data } = this.props
+    const { data } = this.props;
 
-    const compStyle = getWeatherType(data.current_weather.description)
+    const compStyle = getWeatherType(data.current_weather.description);
     
     const className = classnames('weather', {
       'weather--sunny': SUNNY === compStyle,
       'weather--rainy': RAINY === compStyle,
       'weather--cloudy': CLOUDY === compStyle,
-    })
+    });
 
     return (
       <div className={className}>

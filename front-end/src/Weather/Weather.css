@@ -17,18 +17,15 @@
       font-size: 40px;
       font-weight: 700;
       line-height: 40px;
-      padding-bottom: 15px;
       padding-bottom: 15px; }
     .weather-header .weather-place {
       font-size: 15px;
       font-weight: bold;
       letter-spacing: 0.5px;
       line-height: 15px;
-      padding-bottom: 15px;
       padding-bottom: 15px; }
     .weather-header .weather-icon {
       font-size: 150px;
-      padding-bottom: 15px;
       padding-bottom: 15px;
       text-shadow: 5px 5px rgba(140, 140, 140, 0.2); }
   .weather-body {
