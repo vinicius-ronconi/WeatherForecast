@@ -222,7 +222,7 @@ class OpenWeatherApiTestCase(TestCase):
         self.assertEqual(city.id, self.CITY_ID)
         self.assertEqual(city.name, self.CITY_NAME)
         self.assertEqual(city.country_code, self.CITY_COUNTRY_CODE)
-        self.assertEqual(city.flag_url, '/flags-100px/{}.png'.format(self.CITY_COUNTRY_CODE.lower()))
+        self.assertEqual(city.flag_url, '/static/flags-100px/{}.png'.format(self.CITY_COUNTRY_CODE.lower()))
         self.assertEqual(city.lat, self.CITY_LAT)
         self.assertEqual(city.lon, self.CITY_LON)
 

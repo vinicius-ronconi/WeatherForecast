@@ -28,14 +28,14 @@ class CitiesControllerTestCase(TestCase):
                 'name': 'Vance',
                 'country': 'US',
                 'coord': {'lon': -87.233612, 'lat': 33.17},
-                'flag_url': '/flags-100px/us.png',
+                'flag_url': '/static/flags-100px/us.png',
             },
             {
                 'id': 3,
                 'name': 'Vancouver',
                 'country': 'US',
                 'coord': {'lon': -122.661491, 'lat': 45.63},
-                'flag_url': '/flags-100px/us.png',
+                'flag_url': '/static/flags-100px/us.png',
             },
         ]
         self.assertListEqual(result, expected_result)
@@ -45,7 +45,7 @@ class CitiesControllerTestCase(TestCase):
             'name': 'Serra',
             'country': 'BR',
             'coord': {'lon': -40.307781, 'lat': -20.128611},
-            'flag_url': '/flags-100px/br.png',
+            'flag_url': '/static/flags-100px/br.png',
         }]
         self.assertListEqual(result, expected_result)
 

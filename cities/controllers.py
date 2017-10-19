@@ -12,7 +12,7 @@ class CitiesController(object):
     """
     DOWNLOAD_URL = 'http://bulk.openweathermap.org/sample/city.list.json.gz'
     SEARCH_MIN_CHARS = 3
-    SEARCH_LIMIT = 10
+    SEARCH_LIMIT = 8
 
     adapter = OpenWeatherMongoAdapter()
     async_controller = AsyncController()
