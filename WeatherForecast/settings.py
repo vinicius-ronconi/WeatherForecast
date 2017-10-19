@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'forecast.apps.ForecastConfig',
     'cities.apps.CitiesConfig',
     'async.apps.AsyncConfig'
@@ -49,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'WeatherForecast.urls'
@@ -124,6 +127,7 @@ STATICFILES_DIRS = [
     os.path.join(os.path.join(BASE_DIR, 'front-end'), 'build', 'static')
 ]
 REACT_APP_DIR = os.path.join(BASE_DIR, 'front-end')
+CORS_ORIGIN_ALLOW_ALL = True
 
 BASE_LOG_DIR = '/mnt/local/log/'
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
