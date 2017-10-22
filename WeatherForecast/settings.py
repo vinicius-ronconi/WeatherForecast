@@ -133,7 +133,7 @@ BASE_LOG_DIR = '/mnt/local/log/'
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 OPEN_WEATHER_API_KEY = 'my_open_weather_api_key'
 
-MONGO_HOST = 'localhost'
+MONGO_HOST = 'mongo'
 MONGO_PORT = 27017
 MONGO_DB = 'weather_forecast'
 MONGO_TEST_DB = 'weather_forecast_test'
