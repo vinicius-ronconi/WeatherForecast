@@ -131,7 +131,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 BASE_LOG_DIR = '/mnt/local/log/'
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-OPEN_WEATHER_API_KEY = 'my_open_weather_api_key'
+OPEN_WEATHER_API_KEY = '101c5c24b97df837c96bf1777bb52034'
 
 MONGO_HOST = 'mongo'
 MONGO_PORT = 27017
