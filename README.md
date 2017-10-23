@@ -39,7 +39,7 @@ docker-compose up --build
 ```
 
 # URL
-The app will run on port 8000, so access it as [http://localhost:8000]()
+The app will run on port 8000, so access it as [http://localhost:8000](http://localhost:8000)
 
 # Next Steps
 * Get current location from device
