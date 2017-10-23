@@ -30,6 +30,17 @@ python3 manual_scripts/initial_cities_load.py
 python3 manage.py runserver
 ```
 
+# Docker
+It is also possible to run the app using Docker:
+```
+git clone https://github.com/vinicius-ronconi/WeatherForecast.git
+cd WeatherForecast
+docker-compose up --build
+```
+
+# URL
+The app will run on port 8000, so access it as [http://localhost:8000]
+
 # Next Steps
 * Get current location from device
 * Let user select unit of measurement (C or F)
