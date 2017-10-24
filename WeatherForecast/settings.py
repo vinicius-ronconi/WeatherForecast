@@ -25,7 +25,7 @@ SECRET_KEY = 'real_secret_will_be_replaced!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['weather-forecast-vini-ronconi.herokuapp.com']
 
 
 # Application definition
